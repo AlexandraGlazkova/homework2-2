@@ -1,11 +1,22 @@
 import java.util.Objects;
 
-public class Genevra extends hogwarts{
+public class Genevra extends Hogwarts{
     private int mind;
     private int wisdom;
     private int wit;
     private int creative;
 
+    public void compareStudents(Genevra studentSecond) {
+        int powerOne = this.mind + this.wisdom + this.wit + this.creative;
+        int powerTwo = studentSecond.mind + studentSecond.wisdom + studentSecond.wit + studentSecond.creative;
+        if (powerOne > powerTwo) {
+            System.out.println(this.name + " лучше, чем " + studentSecond.name);
+        } else if (powerOne < powerTwo) {
+            System.out.println(studentSecond.name + " лучше, чем " + this.name);
+        } else {
+            System.out.println(this.name + "такой же как и " + studentSecond.name);
+        }
+    }
     public Genevra(String name, int theDistanceOfTheTransgression, int thePowerOfMagic,
                    int mind, int wisdom, int wit, int creative) {
         super(name, theDistanceOfTheTransgression, thePowerOfMagic);
@@ -49,25 +60,13 @@ public class Genevra extends hogwarts{
 
     @Override
     public String toString() {
-        return "Genevra{" +
-                "mind=" + mind +
-                ", wisdom=" + wisdom +
-                ", wit=" + wit +
-                ", creative=" + creative +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Genevra genevra = (Genevra) o;
-        return mind == genevra.mind && wisdom == genevra.wisdom && wit == genevra.wit && creative == genevra.creative;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(mind, wisdom, wit, creative);
+        return name + " - ученик Genevra:" +
+                "mind = " + mind +
+                ", wisdom = " + wisdom +
+                ", wit = " + wit +
+                ", creative = " + creative +
+                ", teleport = " + teleport +
+                ", magic = " + magic;
     }
 }
 

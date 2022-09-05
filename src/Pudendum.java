@@ -1,13 +1,25 @@
 import java.util.Objects;
 
-public class Pudendum extends hogwarts {
+public class Pudendum extends Hogwarts {
     private int industriousness;
     private int loyalty;
     private int honesty;
 
-    public Pudendum(String name, int theDistanceOfTheTransgression, int thePowerOfMagic,
+    public void compareStudents(Pudendum studentSecond) {
+        int powerOne = this.industriousness + this.loyalty + this.honesty;
+        int powerTwo = studentSecond.industriousness + studentSecond.loyalty + studentSecond.honesty;
+        if (powerOne > powerTwo) {
+            System.out.println(this.name + " лучше, чем " + studentSecond.name);
+        } else if (powerOne < powerTwo) {
+            System.out.println(studentSecond.name + " лучше, чем " + this.name);
+        } else {
+            System.out.println(this.name + "такой же как и " + studentSecond.name);
+        }
+    }
+
+    public Pudendum(String name, int teleport, int magic,
                     int industriousness, int loyalty, int honesty) {
-        super (name, theDistanceOfTheTransgression, thePowerOfMagic);
+        super(name, teleport, magic);
         this.industriousness = industriousness;
         this.loyalty = loyalty;
         this.honesty = honesty;
@@ -39,23 +51,13 @@ public class Pudendum extends hogwarts {
 
     @Override
     public String toString() {
-        return "Pudendum{" +
-                "industriousness=" + industriousness +
-                ", loyalty=" + loyalty +
-                ", honesty=" + honesty +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Pudendum pudendum = (Pudendum) o;
-        return industriousness == pudendum.industriousness && loyalty == pudendum.loyalty && honesty == pudendum.honesty;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(industriousness, loyalty, honesty);
+        return name + " - ученик Pudenum: " +
+                "industriousness = " + industriousness +
+                ", loyalty = " + loyalty +
+                ", honesty = " + honesty +
+                ", teleport = " + teleport +
+                ", magic = " + magic;
     }
 }
+
+

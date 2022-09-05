@@ -1,24 +1,34 @@
 import java.util.Objects;
 
-public class Gryffindor extends hogwarts {
-    private int nobly;
+public class Gryffindor extends Hogwarts {
+    private int nobility;
     private int honor;
     private int bravery;
 
-    public Gryffindor(String name, int theDistanceOfTheTransgression, int thePowerOfMagic,
-                      int nobly, int honor, int bravery) {
-        super(name, theDistanceOfTheTransgression, thePowerOfMagic);
-        this.nobly = nobly;
+    public void compareStudents (Gryffindor studentSecond){
+        int powerOne = this.nobility+this.honor+this.bravery;
+        int powerTwo= studentSecond.nobility+studentSecond.honor+studentSecond.bravery;
+        if (powerOne > powerTwo){
+            System.out.println( this.name + " лучший Гриффиндорец, чем "+ studentSecond.name);
+        } else if (powerOne < powerTwo){
+            System.out.println(studentSecond.name + " лучший Гриффиндорец, чем "+ this.name);
+        }else{
+            System.out.println(this.name + "такой же Гриффиндорец, как и " + studentSecond.name);
+        }
+    }
+    public Gryffindor (String name, int teleport, int magic, int nobility, int honor, int bravery) {
+        super (name, teleport, magic);
+        this.nobility = nobility;
         this.honor = honor;
         this.bravery = bravery;
     }
 
-    public int getNobly() {
-        return nobly;
+    public int getNobility() {
+        return nobility;
     }
 
-    public void setNobly(int nobly) {
-        this.nobly = nobly;
+    public void setNobility(int nobility) {
+        this.nobility = nobility;
     }
 
     public int getHonor() {
@@ -39,23 +49,13 @@ public class Gryffindor extends hogwarts {
 
     @Override
     public String toString() {
-        return "Gryffindor{" +
-                "nobly=" + nobly +
-                ", honor=" + honor +
-                ", bravery=" + bravery +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Gryffindor that = (Gryffindor) o;
-        return nobly == that.nobly && honor == that.honor && bravery == that.bravery;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nobly, honor, bravery);
+        return name + "- ученик Griffinor: "+
+                "nobility = " + nobility +
+                ", honor = " + honor +
+                ", bravery = " + bravery +
+                ", teleport = " + teleport +
+                ", magic = " + magic;
     }
 }
+
+

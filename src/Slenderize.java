@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Slenderize extends hogwarts{
+public class Slenderize extends Hogwarts{
 
     private int theTrick;
     private int determination;
@@ -8,6 +8,18 @@ public class Slenderize extends hogwarts{
     private int resourcefulness;
     private int lustForPower;
 
+    public void compareStudents(Slenderize studentSecond) {
+        int powerOne = this.theTrick + this.determination + this.ambition + this.resourcefulness + this.lustForPower;
+        int powerTwo = studentSecond.theTrick + studentSecond.determination + studentSecond.ambition +
+                studentSecond.resourcefulness + studentSecond.lustForPower;
+        if (powerOne > powerTwo) {
+            System.out.println(this.name + " лучше, чем " + studentSecond.name);
+        } else if (powerOne < powerTwo) {
+            System.out.println(studentSecond.name + " лучше, чем " + this.name);
+        } else {
+            System.out.println(this.name + "такой же как и " + studentSecond.name);
+        }
+    }
     public Slenderize(String name, int theDistanceOfTheTransgression, int thePowerOfMagic, int theTrick,
                       int determination, int ambition, int resourcefulness, int lustForPower) {
         super(name, theDistanceOfTheTransgression, thePowerOfMagic);
@@ -60,25 +72,15 @@ public class Slenderize extends hogwarts{
 
     @Override
     public String toString() {
-        return "Slenderize{" +
-                "theTrick=" + theTrick +
-                ", determination=" + determination +
-                ", ambition=" + ambition +
-                ", resourcefulness=" + resourcefulness +
-                ", lustForPower=" + lustForPower +
-                '}';
+        return name + " - ученик Slenderize: " +
+                "theTrick = " + theTrick +
+                ", determination = " + determination +
+                ", ambition = " + ambition +
+                ", resourcefulness = " + resourcefulness +
+                ", lustForPower = " + lustForPower +
+                ", teleport = " + teleport +
+                ", magic = " + magic;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Slenderize that = (Slenderize) o;
-        return theTrick == that.theTrick && determination == that.determination && ambition == that.ambition && resourcefulness == that.resourcefulness && lustForPower == that.lustForPower;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(theTrick, determination, ambition, resourcefulness, lustForPower);
-    }
 }
+
